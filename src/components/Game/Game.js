@@ -16,12 +16,7 @@ function Game() {
 
   // he named this function "handleSubmitGuess". It's a "handler" function
   function updateGuessList(guess) {
-    // console.log("received guess", guess);
-    const newGuess = {
-      id: Math.random(),
-      value: guess,
-    };
-    setGuessList([...guessList, newGuess]);
+    setGuessList([...guessList, guess]);
   }
 
   return (
