@@ -21,7 +21,7 @@ function Form({ guess, setGuess, updateGuessList, guessList }) {
         maxLength="5"
         title="Please enter a 5-letter word."
         pattern="[A-Za-z]{5}"
-        disabled={NUM_OF_GUESSES_ALLOWED === guessList.length && "true"}
+        disabled={NUM_OF_GUESSES_ALLOWED === guessList.length ? true : false}
       />
     </form>
   );

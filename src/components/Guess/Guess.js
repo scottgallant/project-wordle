@@ -11,9 +11,6 @@ function Guess({ guess }) {
           </span>
         ))}
       </p>
-      {/* {range(5).map((num) => (
-          <span className="cell"></span>
-        ))} */}
     </div>
   );
 }
