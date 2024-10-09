@@ -4,6 +4,8 @@ import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import Form from "../Form/Form";
 import Results from "../Results/Results";
+import Guess from "../Guess/Guess";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -26,6 +28,7 @@ function Game() {
         guess={guess}
         setGuess={setGuess}
         updateGuessList={updateGuessList}
+        guessList={guessList}
       />
     </div>
   );
