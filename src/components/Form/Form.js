@@ -1,20 +1,17 @@
 import React from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function Form({ updateGuessList, guessList, answer }) {
+function Form({ handleSubmitGuess, gameStatus }) {
   const [guess, setGuess] = React.useState("");
 
-  win = guessList.includes(answer);
+  function handleSubmit(event) {
+    event.preventDefault();
+    handleSubmitGuess(guess);
+    setGuess("");
+  }
 
   return (
-    <form
-      className="guess-input-wrapper"
-      onSubmit={(event) => {
-        event.preventDefault();
-        updateGuessList(guess);
-        setGuess("");
-      }}
-    >
+    <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required // This attribute makes the input field mandatory.
@@ -25,9 +22,7 @@ function Form({ updateGuessList, guessList, answer }) {
         maxLength="5"
         title="Please enter a 5-letter word."
         pattern="[A-Za-z]{5}"
-        disabled={
-          win || NUM_OF_GUESSES_ALLOWED === guessList.length ? true : false
-        }
+        disabled={gameStatus !== "running"}
       />
     </form>
   );
