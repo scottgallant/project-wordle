@@ -1,7 +1,11 @@
 import React from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function Form({ guess, setGuess, updateGuessList, guessList }) {
+function Form({ updateGuessList, guessList, answer }) {
+  const [guess, setGuess] = React.useState("");
+
+  win = guessList.includes(answer);
+
   return (
     <form
       className="guess-input-wrapper"
@@ -21,7 +25,9 @@ function Form({ guess, setGuess, updateGuessList, guessList }) {
         maxLength="5"
         title="Please enter a 5-letter word."
         pattern="[A-Za-z]{5}"
-        disabled={NUM_OF_GUESSES_ALLOWED === guessList.length ? true : false}
+        disabled={
+          win || NUM_OF_GUESSES_ALLOWED === guessList.length ? true : false
+        }
       />
     </form>
   );
